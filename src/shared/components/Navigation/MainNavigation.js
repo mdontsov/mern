@@ -25,20 +25,15 @@ const MainNavigation = params => {
         <React.Fragment>
 
             {
-                drawerStateOpened ? (
-                    <Backdrop onClick={closeDrawer} />
-                ) : null
+                drawerStateOpened && <Backdrop onClick={closeDrawer} />
             }
 
-            {
-                drawerStateOpened ? (
-                    <SideDrawer>
-                        <nav className="main-navigation-drawer-nav">
-                            <NavLinks />
-                        </nav>
-                    </SideDrawer>
-                ) : null
-            }
+            <SideDrawer show={drawerStateOpened} onClick={closeDrawer}>
+                <nav className="main-navigation-drawer-nav">
+                    <NavLinks />
+                </nav>
+            </SideDrawer>
+
             <MainHeader>
                 <button className="main-navigation-menu-btn" onClick={openDrawer}>
                     <span />
@@ -49,7 +44,7 @@ const MainNavigation = params => {
                     <Link to={"/"}>Your places</Link>
                 </h1>
                 <nav className="main-navigation-header-hav">
-                    {/* <NavLinks /> */}
+                    <NavLinks />
                 </nav>
             </MainHeader>
         </React.Fragment>

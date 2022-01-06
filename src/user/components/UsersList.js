@@ -27,7 +27,7 @@ const UsersList = params => {
                             id={userItem.id}
                             image={userItem.image}
                             name={userItem.name}
-                            placeCount={userItem.places}
+                            placeCount={userItem.places.length}
                         />
                     )
                 )
